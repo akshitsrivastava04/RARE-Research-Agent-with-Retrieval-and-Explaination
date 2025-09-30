@@ -1,9 +1,6 @@
 # RARE-Research-Agent-with-Retrieval-and-Explaination
 
-Got it! Here's the full **`README.md`** formatted properly for your project, renamed to **RARE** (Research Agent with Retrieval and Explanation), ready to save as `README.md`:
 
-````markdown
-# RARE: Research Agent with Retrieval and Explanation
 
 RARE is a single-file **CLI agent** for retrieval-augmented generation (RAG). It allows you to:
 
