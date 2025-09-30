@@ -2,7 +2,9 @@
 
 
 
-RARE is a single-file **CLI agent** for retrieval-augmented generation (RAG). It allows you to:
+This project presents a Python command-line utility for a Retrieval-Augmented Generation (RAG) system, designed to interact with a knowledge base of local documents. The tool leverages LangChain for core functionalities, including document handling, vector storage, and query execution.
+
+Key features include:
 
 - Index PDFs and text documents into a Chroma vector store.
 - Query documents using a large language model (LLM) with retrieval.
@@ -75,8 +77,8 @@ Example configuration:
 
 ```yaml
 backend: huggingface_hub           # huggingface_hub | local_transformers | lmstudio
-hf_model: EleutherAI/gpt-neo-2.7B  # only for huggingface_hub
-local_model_name: EleutherAI/gpt-neo-2.7B
+hf_model: meta-llama/Llama-3.1-8B# only for huggingface_hub
+local_model_name: meta-llama/Llama-3.1-8B
 local_max_new_tokens: 512
 lmstudio_url: http://127.0.0.1:8080/generate
 lmstudio_api_key: ""
@@ -190,9 +192,5 @@ LMSTUDIO_API_KEY=lm_xxxxx
 
 ```
 
----
-
-If you want, I can also generate a **`requirements.txt`** and a **folder structure diagram** for RARE to make it fully plug-and-play for anyone.  
-
-Do you want me to do that?
+--
 ```
