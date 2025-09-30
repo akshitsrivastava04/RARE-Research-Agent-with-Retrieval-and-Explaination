@@ -1,0 +1,27 @@
+backend: "huggingface_endpoint"
+
+hf_model: "meta-llama/Llama-3.1-8B"    
+hf_api_token: ""                      
+
+# LM Studio HTTP settings (if using lmstudio backend)
+lmstudio_url: "http://127.0.0.1:8080/generate"                      # e.g. http://127.0.0.1:8080/generate (set to your LM Studio endpoint)
+lmstudio_api_key: ""                  # optional
+
+
+local_model_name: "meta-llama/Llama-3.1-8B"
+local_max_new_tokens: 512
+
+
+embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+docs_dir: "./data/docs"               # where your PDFs / text files are
+persist_directory: "./chroma_db"      # Chroma persistent dir
+collection_name: "crewai_collection"
+
+# Chunking and retrieval
+chunk_size: 800
+chunk_overlap: 150
+top_k: 4
+
+# LLM generation defaults
+temperature: 0.0
+max_tokens: 512
