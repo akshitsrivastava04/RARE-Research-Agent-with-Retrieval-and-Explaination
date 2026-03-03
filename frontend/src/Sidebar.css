@@ -1,0 +1,171 @@
+/* Sidebar.css */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: #0c0c0c;
+    /* Very dark, almost black */
+    border-right: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    color: #a0a0a0;
+    font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.brand-icon {
+    width: 8px;
+    height: 8px;
+    background-color: #00ffff;
+    /* Cyan accent */
+    transform: rotate(45deg);
+    display: inline-block;
+    box-shadow: 0 0 8px #00ffff;
+}
+
+.new-research-btn {
+    margin: 0 20px 20px 20px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.new-research-btn:hover {
+    background-color: #252525;
+}
+
+.section-title {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 20px 10px 20px;
+    color: #555;
+    font-weight: 600;
+}
+
+.history-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0 10px;
+    margin: 0;
+}
+
+.history-item {
+    padding: 10px 15px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #888;
+    transition: all 0.2s;
+}
+
+.history-item:hover,
+.history-item.active {
+    background-color: #1a1a1a;
+    color: #eee;
+}
+
+.history-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+.delete-chat-btn {
+    background: none;
+    border: none;
+    color: #555;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    opacity: 0;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.history-item:hover .delete-chat-btn {
+    opacity: 1;
+}
+
+.delete-chat-btn:hover {
+    background-color: #333;
+    color: #ff4d4d;
+}
+
+/* Scrollbar */
+.history-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 2px;
+}
+
+.user-profile {
+    padding: 20px;
+    border-top: 1px solid #222;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.avatar-placeholder {
+    width: 32px;
+    height: 32px;
+    background-color: #0088cc;
+    /* Teal/Blue */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.user-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    color: #eee;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.user-plan {
+    color: #555;
+    font-size: 0.75rem;
+}
+
+.menu-dots {
+    color: #555;
+}

@@ -1,0 +1,327 @@
+/* CouncilView.css */
+
+.council-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0f1115;
+    /* Dark cyberpunk bg */
+    z-index: 2000;
+    /* Above everything */
+    display: flex;
+    flex-direction: column;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.council-top-bar {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-button {
+    background: none;
+    border: 1px solid #444;
+    color: #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+}
+
+.back-button:hover {
+    background: #222;
+}
+
+.council-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #f8fafc;
+    /* Clean off-white */
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.council-question {
+    padding: 1rem 2rem;
+    background: #1a1d24;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.council-stage {
+    flex: 1;
+    position: relative;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* 3-Column Grid for Agents */
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.agent-panel {
+    background: #161920;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.agent-panel.placeholder {
+    opacity: 0.7;
+    justify-content: center;
+    align-items: center;
+}
+
+.agent-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.agent-name {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.agent-role {
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.agent-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.agent-content h1,
+.agent-content h2,
+.agent-content h3 {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Winner (if we highlighted individual panels) */
+.winner-panel {
+    border-color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.winner-badge {
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    color: #000;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Skeletons */
+.agent-header-skeleton {
+    height: 24px;
+    width: 60%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.content-skeleton {
+    height: 16px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    animation: pulse-opacity 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-opacity {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+/* Loading/Spinner */
+.spinner-small {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #cbd5e1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-top: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Voting Overlay */
+.judge-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.judge-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Final Verdict Overlay */
+.final-verdict-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Start centered, framer handles anim */
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    /* Max width for card */
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    pointer-events: none;
+    /* Let clicks pass through outside card? No, overlay is full screen usually. */
+}
+
+/* But wait, we want the overlay to cover the whole screen or just be a card?
+   Current render logic puts it inside .council-stage relative div.
+   Let's make it cover the stage.
+*/
+.final-verdict-overlay {
+    top: 0;
+    left: 0;
+    transform: none;
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: auto;
+}
+
+.verdict-card {
+    background: #1a1d24;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    width: 80%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.verdict-header {
+    background: linear-gradient(90deg, #1e293b, #0f172a);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.verdict-header h3 {
+    margin: 0;
+    margin-left: 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.gavel-icon {
+    font-size: 2rem;
+}
+
+.close-verdict {
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.verdict-content {
+    padding: 2rem;
+    overflow-y: auto;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #ddd;
+}
+
+.verdict-actions {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.accept-button {
+    background: #334155;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.accept-button:hover {
+    background: #475569;
+    border-color: rgba(255, 255, 255, 0.3);
+}

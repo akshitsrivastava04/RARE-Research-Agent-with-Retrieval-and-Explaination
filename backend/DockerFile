@@ -1,0 +1,29 @@
+# Use the official Python image as a base
+FROM python:3.11-slim
+
+# Set environment variables
+ENV PYTHONUNBUFFERED 1
+# This helps with model loading cache for sentence-transformers
+ENV SENTENCE_TRANSFORMERS_HOME /app/.cache/torch/sentence_transformers
+
+# Set the working directory inside the container
+WORKDIR /app/backend
+
+# Copy necessary project files
+# Note: These paths assume you run 'docker build' from the root of your project
+COPY backend/requirements.txt /app/backend/requirements.txt
+COPY backend/app.py /app/backend/app.py
+# Copy the entire services directory
+COPY backend/services /app/backend/services
+
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the port the app will run on (Hugging Face / Cloud Run standard)
+EXPOSE 8080
+
+# Command to run the application using Gunicorn
+# -w 1 ensures only one worker runs, which is crucial to avoid memory errors
+# --bind 0.0.0.0:8080 ensures it listens on the correct port
+CMD exec gunicorn -w 1 -k uvicorn.workers.UvicornWorker app:app --bind 0.0.0.0:8080

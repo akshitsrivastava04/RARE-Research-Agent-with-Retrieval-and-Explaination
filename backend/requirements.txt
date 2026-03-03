@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+motor
+passlib[argon2]
+python-jose[cryptography]
+python-dotenv
+numpy
+faiss-cpu
+sentence-transformers
+langchain-text-splitters
+groq
+# Assuming your services.gemini_summarizer uses the Google AI SDK
+google-generativeai
+gunicorn
+langchain-groq
+langchain-core

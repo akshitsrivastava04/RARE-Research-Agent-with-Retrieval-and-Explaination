@@ -1,0 +1,17 @@
+{
+  "date": "2026-03-03",
+  "models": {
+    "llama-3.1-8b-instant": {
+      "total_tokens_used": 602
+    },
+    "openai/gpt-oss-20b": {
+      "total_tokens_used": 15436
+    },
+    "qwen/qwen3-32b": {
+      "total_tokens_used": 3048
+    },
+    "moonshotai/kimi-k2-instruct": {
+      "total_tokens_used": 1989
+    }
+  }
+}

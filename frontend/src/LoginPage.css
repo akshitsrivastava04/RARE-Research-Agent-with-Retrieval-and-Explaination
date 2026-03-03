@@ -1,0 +1,363 @@
+/* LoginPage.css — RARE Black Theme */
+
+/* ── Full-page wrapper ── */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  color: #ededed;
+  overflow: hidden;
+  background: #000000;
+  position: relative;
+}
+
+/* Subtle radial ambient glow */
+.login-page::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.04) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Card ── */
+.login-container {
+  position: relative;
+  z-index: 1;
+  padding: 2.8rem 2.5rem 2rem;
+  background: #0a0a0a;
+  border-radius: 20px;
+  border: 1px solid #222;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 80px rgba(0, 255, 255, 0.03);
+}
+
+/* ── Icon badge at top ── */
+.login-icon-badge {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 1.2rem;
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.login-icon-badge svg {
+  width: 24px;
+  height: 24px;
+  color: #00ffff;
+}
+
+/* ── Heading ── */
+.login-container h2 {
+  margin: 0 0 0.5rem;
+  color: #ededed;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.login-container p.welcome-message {
+  color: #666;
+  font-size: 0.88rem;
+  margin: 0 auto 1.8rem;
+  line-height: 1.55;
+  max-width: 85%;
+}
+
+/* ── Input group ── */
+.input-group {
+  margin-bottom: 1rem;
+  text-align: left;
+  position: relative;
+}
+
+.input-group label {
+  display: none;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.8rem;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  background-color: #111;
+  color: #ededed;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.input-group input::placeholder {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.12);
+}
+
+/* Password visibility toggle */
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.password-toggle:hover {
+  color: #888;
+}
+
+.password-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ── Forgot password ── */
+.forgot-password-row {
+  text-align: right;
+  margin: -0.2rem 0 0.2rem;
+}
+
+.forgot-password-link {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+.forgot-password-link:hover {
+  color: #00ffff;
+}
+
+/* ── CTA Button ── */
+.login-button {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+  color: #ededed;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 1rem;
+  letter-spacing: 0.3px;
+  border: 1px solid #2a2a2a;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.login-button:hover {
+  border-color: #00ffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.12);
+}
+
+.login-button:hover::before {
+  opacity: 1;
+}
+
+.login-button:disabled {
+  background: #111;
+  color: #444;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  border-color: #222;
+}
+
+/* ── Divider ── */
+.divider-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 1.6rem 0 1.2rem;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(to right,
+      #333 0px,
+      #333 4px,
+      transparent 4px,
+      transparent 8px);
+}
+
+.divider-text {
+  color: #555;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+/* ── Social buttons ── */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.social-btn {
+  width: 56px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #111;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.social-btn:hover {
+  border-color: #444;
+  background: #1a1a1a;
+  transform: translateY(-1px);
+}
+
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Toggle (register/login) ── */
+.toggle-button {
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 1.5rem;
+  font-size: 0.88rem;
+  font-weight: 400;
+  transition: color 0.2s ease;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.toggle-button:hover {
+  color: #00ffff;
+}
+
+/* ── Error ── */
+.error-message {
+  color: #ff4d4d;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+  background: rgba(255, 77, 77, 0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 77, 77, 0.15);
+}
+
+/* ── Logo text ── */
+.login-logo-placeholder {
+  display: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 2rem 1.5rem 1.5rem;
+    margin: 0 16px;
+    border-radius: 16px;
+  }
+
+  .login-icon-badge {
+    width: 44px;
+    height: 44px;
+  }
+
+  .login-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .login-container p.welcome-message {
+    font-size: 0.82rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .login-button {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .social-btn {
+    width: 50px;
+    height: 40px;
+  }
+}
+
+/* ── Remove old unused classes ── */
+.video-wrapper,
+.form-wrapper,
+.mute-toggle-button {
+  display: none;
+}
